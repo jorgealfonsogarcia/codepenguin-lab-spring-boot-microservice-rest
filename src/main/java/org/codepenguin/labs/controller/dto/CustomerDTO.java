@@ -16,16 +16,27 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package org.codepenguin.labs;
+package org.codepenguin.labs.controller.dto;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import java.io.Serial;
+import java.io.Serializable;
 
-@SpringBootTest
-class ApplicationTests {
+/**
+ * Customer DTO.
+ *
+ * @param id          the id.
+ * @param email       the email.
+ * @param firstName   the first name.
+ * @param lastName    the last name.
+ * @param address     the address.
+ * @param phoneNumber the phone number.
+ * @author Jorge Garcia
+ * @version 0.0.1-SNAPSHOT
+ * @since 17
+ */
+public record CustomerDTO(Long id, String email, String firstName, String lastName, String address,
+                          String phoneNumber) implements Serializable {
 
-    @Test
-    void contextLoads() {
-    }
-
+    @Serial
+    private static final long serialVersionUID = -1307055080625744037L;
 }

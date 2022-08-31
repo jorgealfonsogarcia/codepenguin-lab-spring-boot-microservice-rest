@@ -16,16 +16,35 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package org.codepenguin.labs;
+package org.codepenguin.labs.controller.mapper;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.codepenguin.labs.controller.dto.CustomerDTO;
+import org.codepenguin.labs.model.entity.Customer;
+import org.mapstruct.Mapper;
 
-@SpringBootTest
-class ApplicationTests {
+/**
+ * The mapper for {@link Customer} and {@link CustomerDTO}.
+ *
+ * @author Jorge Garcia
+ * @version 0.0.1-SNAPSHOT
+ * @since 17
+ */
+@Mapper(componentModel = "spring")
+public interface CustomerMapper {
 
-    @Test
-    void contextLoads() {
-    }
+    /**
+     * Maps the DTO to the entity.
+     *
+     * @param dto the customer DTO.
+     * @return the customer entity.
+     */
+    Customer mapToEntity(CustomerDTO dto);
 
+    /**
+     * Maps the entity to the DTO.
+     *
+     * @param customer the customer entity.
+     * @return the customer DTO.
+     */
+    CustomerDTO mapToDto(Customer customer);
 }

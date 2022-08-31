@@ -16,16 +16,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package org.codepenguin.labs;
+package org.codepenguin.labs.model.repository;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.codepenguin.labs.model.entity.Customer;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-@SpringBootTest
-class ApplicationTests {
-
-    @Test
-    void contextLoads() {
-    }
-
+/**
+ * CRUD repository for {@link Customer}.
+ *
+ * @author Jorge Garcia
+ * @version 0.0.1-SNAPSHOT
+ * @since 17
+ */
+@Repository
+public interface CustomerRepository extends CrudRepository<Customer, Long> {
 }
