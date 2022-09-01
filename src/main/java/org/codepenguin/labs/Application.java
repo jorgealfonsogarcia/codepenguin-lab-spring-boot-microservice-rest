@@ -31,6 +31,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 
+    /**
+     * Main method.
+     *
+     * @param args the system args.
+     */
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }

@@ -18,6 +18,8 @@
 
 package org.codepenguin.labs.controller.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -34,8 +36,12 @@ import java.io.Serializable;
  * @version 0.0.1-SNAPSHOT
  * @since 17
  */
-public record CustomerDTO(Long id, String email, String firstName, String lastName, String address,
-                          String phoneNumber) implements Serializable {
+public record CustomerDTO(Long id,
+                          @NotNull @Email String email,
+                          @NotNull String firstName,
+                          @NotNull String lastName,
+                          @NotNull String address,
+                          @NotNull String phoneNumber) implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -1307055080625744037L;

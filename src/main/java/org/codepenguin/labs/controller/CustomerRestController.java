@@ -26,6 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.stream.StreamSupport;
 
 /**
@@ -50,6 +51,7 @@ public class CustomerRestController {
      * @param customerMapper  the customer mapper.
      */
     @Autowired
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     public CustomerRestController(CustomerService customerService, CustomerMapper customerMapper) {
         this.customerService = customerService;
         this.customerMapper = customerMapper;
@@ -62,7 +64,7 @@ public class CustomerRestController {
      * @return the response entity with the new customer DTO.
      */
     @PostMapping
-    public ResponseEntity<CustomerDTO> create(@RequestBody final CustomerDTO customer) {
+    public ResponseEntity<CustomerDTO> create(@RequestBody @Valid final CustomerDTO customer) {
         return ResponseEntity.ok(customerMapper.mapToDto(customerService.save(customerMapper.mapToEntity(customer))));
     }
 
